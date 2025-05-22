@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"cerberusapiclient/gen/models"
+	"cerberius.com/go-client/generated/models"
 )
 
 // IPLookupRequestDataReader is a Reader for the IPLookupRequestData structure.
@@ -119,7 +119,7 @@ func NewIPLookupRequestDataDefault(code int) *IPLookupRequestDataDefault {
 /*
 IPLookupRequestDataDefault describes a response with status code -1, with default header values.
 
-	(generic error)
+Generic error response
 */
 type IPLookupRequestDataDefault struct {
 	_statusCode int

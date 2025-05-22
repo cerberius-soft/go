@@ -1,6 +1,6 @@
-// Package cerberusclient provides an HTTP transport that handles HMAC authentication
+// Package auth provides an HTTP transport that handles HMAC authentication
 // for the Cerberus API. This is used in conjunction with the generated API client.
-package cerberusclient
+package auth
 
 import (
 	"crypto/hmac"

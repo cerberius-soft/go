@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"cerberusapiclient/gen/models"
+	"cerberius.com/go-client/generated/models"
 )
 
 // PromptCheckRequestDataReader is a Reader for the PromptCheckRequestData structure.
@@ -119,7 +119,7 @@ func NewPromptCheckRequestDataDefault(code int) *PromptCheckRequestDataDefault {
 /*
 PromptCheckRequestDataDefault describes a response with status code -1, with default header values.
 
-	(generic error)
+Generic error response
 */
 type PromptCheckRequestDataDefault struct {
 	_statusCode int

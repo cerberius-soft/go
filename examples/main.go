@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"os"
 
-	"cerberusapiclient/cerberusclient" // Auth transport
-	"cerberusapiclient/gen/client"    // API client
-	"cerberusapiclient/gen/client/operations"
-	"cerberusapiclient/gen/models"
+	"cerberius.com/go-client/auth"            // Auth transport
+	"cerberius.com/go-client/generated/client" // API client
+	"cerberius.com/go-client/generated/client/operations"
+	"cerberius.com/go-client/generated/models"
 
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/runtime"
@@ -35,7 +35,7 @@ func main() {
 	}
 
 	// Create the HMAC authentication transport
-	authTransport := cerberusclient.NewHMACAuthTransport(apiKey, apiSecret, http.DefaultTransport)
+	authTransport := auth.NewHMACAuthTransport(apiKey, apiSecret, http.DefaultTransport)
 
 	// Create an HTTP client with the custom auth transport
 	httpClient := &http.Client{
@@ -153,22 +153,22 @@ func handleAPIError(operationName string, err error) {
 
 	switch e := apiErr.Response.(type) {
 	case *operations.EmailValidationRequestDataDefault:
-		if e.Payload != nil && e.Payload.Error != nil {
-			fmt.Printf("    Error Code: %d, Message: %s\n", e.Payload.Error.Code, e.Payload.Error.Message)
+		if typedPayload, ok := e.Payload.(*models.Response); ok && typedPayload != nil && typedPayload.Error != nil {
+			fmt.Printf("    Error Code: %d, Message: %s\n", typedPayload.Error.Code, typedPayload.Error.Message)
 		} else {
-			fmt.Println("    Error payload or error details missing in EmailValidationRequestDataDefault")
+			fmt.Printf("    Error payload is not *models.Response or error details missing. Actual payload: %+v\n", e.Payload)
 		}
 	case *operations.IPLookupRequestDataDefault:
-		if e.Payload != nil && e.Payload.Error != nil {
-			fmt.Printf("    Error Code: %d, Message: %s\n", e.Payload.Error.Code, e.Payload.Error.Message)
+		if typedPayload, ok := e.Payload.(*models.Response); ok && typedPayload != nil && typedPayload.Error != nil {
+			fmt.Printf("    Error Code: %d, Message: %s\n", typedPayload.Error.Code, typedPayload.Error.Message)
 		} else {
-			fmt.Println("    Error payload or error details missing in IPLookupRequestDataDefault")
+			fmt.Printf("    Error payload is not *models.Response or error details missing. Actual payload: %+v\n", e.Payload)
 		}
 	case *operations.PromptCheckRequestDataDefault:
-		if e.Payload != nil && e.Payload.Error != nil {
-			fmt.Printf("    Error Code: %d, Message: %s\n", e.Payload.Error.Code, e.Payload.Error.Message)
+		if typedPayload, ok := e.Payload.(*models.Response); ok && typedPayload != nil && typedPayload.Error != nil {
+			fmt.Printf("    Error Code: %d, Message: %s\n", typedPayload.Error.Code, typedPayload.Error.Message)
 		} else {
-			fmt.Println("    Error payload or error details missing in PromptCheckRequestDataDefault")
+			fmt.Printf("    Error payload is not *models.Response or error details missing. Actual payload: %+v\n", e.Payload)
 		}
 	default:
 		// This means the error response didn't match any of the known default types.

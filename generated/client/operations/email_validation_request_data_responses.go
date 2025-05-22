@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"cerberusapiclient/gen/models"
+	"cerberius.com/go-client/generated/models"
 )
 
 // EmailValidationRequestDataReader is a Reader for the EmailValidationRequestData structure.
@@ -119,7 +119,7 @@ func NewEmailValidationRequestDataDefault(code int) *EmailValidationRequestDataD
 /*
 EmailValidationRequestDataDefault describes a response with status code -1, with default header values.
 
-	(generic error)
+Generic error response
 */
 type EmailValidationRequestDataDefault struct {
 	_statusCode int

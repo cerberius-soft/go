@@ -1,4 +1,4 @@
-package cerberusclient
+package auth
 
 import (
 	"bytes"

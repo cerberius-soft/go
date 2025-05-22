@@ -15,7 +15,7 @@ import (
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"cerberusapiclient/gen/models"
+	"cerberius.com/go-client/generated/models"
 )
 
 // NewPromptCheckRequestDataParams creates a new PromptCheckRequestDataParams object,

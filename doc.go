@@ -1,20 +1,21 @@
-// Package cerberusapiclient provides a Go client for interacting with the Cerberius API.
+// Package goclient provides a Go client for interacting with the Cerberius API.
+// import "cerberius.com/go-client"
 //
 // The client is generated from a Swagger/OpenAPI specification and includes
 // models for all API requests and responses, as well as operations for each
 // API endpoint.
 //
-// It also includes a custom HTTP transport (`cerberusclient.HMACAuthTransport`)
+// It also includes a custom HTTP transport (`cerberius.com/go-client/auth.HMACAuthTransport`)
 // to handle the HMAC-SHA256 authentication required by the Cerberius API.
 //
 // # Installation
 //
 // To use this client in your Go project, you can fetch it using `go get`:
 //
-//	go get github.com/your-repo-path/cerberusapiclient
+//	go get cerberius.com/go-client
 //
-// (Replace `github.com/your-repo-path/cerberusapiclient` with the actual import path
-// once the repository is available.)
+// (Replace `cerberius.com/go-client` with the actual import path
+// if it's hosted elsewhere.)
 //
 // # Usage
 //
@@ -28,10 +29,10 @@
 //		"net/http"
 //		"os"
 //
-//		"cerberusapiclient/cerberusclient" // Authentication transport
-//		"cerberusapiclient/gen/client"    // Generated API client
-//		"cerberusapiclient/gen/client/operations"
-//		"cerberusapiclient/gen/models"
+//		"cerberius.com/go-client/auth" // Authentication transport
+//		"cerberius.com/go-client/generated/client"    // Generated API client
+//		"cerberius.com/go-client/generated/client/operations"
+//		"cerberius.com/go-client/generated/models"
 //
 //		httptransport "github.com/go-openapi/runtime/client"
 //		"github.com/go-openapi/strfmt"
@@ -46,7 +47,7 @@
 //		}
 //
 //		// Create the HMAC authentication transport, wrapping the default HTTP transport
-//		authTransport := cerberusclient.NewHMACAuthTransport(apiKey, apiSecret, http.DefaultTransport)
+//		authTransport := auth.NewHMACAuthTransport(apiKey, apiSecret, http.DefaultTransport)
 //
 //		// Create an HTTP client that uses our custom authentication transport
 //		httpClient := &http.Client{
@@ -78,11 +79,11 @@
 //
 // # Authentication
 //
-// Authentication is handled by `cerberusclient.HMACAuthTransport`. This transport
+// Authentication is handled by `cerberius.com/go-client/auth.HMACAuthTransport`. This transport
 // automatically adds the following headers to each request:
 //   - X-API-Key: Your API key.
 //   - X-Timestamp: The current UNIX timestamp.
 //   - X-Signature: The HMAC-SHA256 signature of (timestamp + api_key) using your API secret.
 //
 // You must provide your API key and secret when creating the `HMACAuthTransport`.
-package cerberusapiclient
+package goclient // import "cerberius.com/go-client"
