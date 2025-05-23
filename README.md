@@ -1,4 +1,4 @@
-[![Go Test](https://github.com/YOUR_OWNER/YOUR_REPO/actions/workflows/go-test.yml/badge.svg)](https://github.com/YOUR_OWNER/YOUR_REPO/actions/workflows/go-test.yml)
+[![Go Test](https://github.com/cerberius-soft/go/actions/workflows/go-test.yml/badge.svg?branch=main)](https://github.com/cerberius-soft/go/actions/workflows/go-test.yml)
 
 # Cerberius API Go Client
 

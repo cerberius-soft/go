@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - cerberus-go-client
   pull_request:
     branches:
       - main
