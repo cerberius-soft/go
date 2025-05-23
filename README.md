@@ -1,3 +1,5 @@
+[![Go Test](https://github.com/YOUR_OWNER/YOUR_REPO/actions/workflows/go-test.yml/badge.svg)](https://github.com/YOUR_OWNER/YOUR_REPO/actions/workflows/go-test.yml)
+
 # Cerberius API Go Client
 
 This repository contains a Go client library for interacting with the [Cerberius API](https://service.cerberius.com/api/schema).
